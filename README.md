@@ -151,3 +151,15 @@ knwon as req
 - error-handling middleware
 - built in middleware
 - third party middleware
+```
+const middleware1 =(req, res, next)=>{
+    console.log("I am logging")
+    next()
+}
+app.use(middleware1)
+app.get('/', (req, res)=>{
+    res.send('hello')
+})
+```
+
+# Router Concept:
