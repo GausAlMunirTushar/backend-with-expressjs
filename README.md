@@ -1,3 +1,12 @@
+# 1. What is RESTful Service
+## Client Sever Communicaiton:
+
+- URL :Uniform Resource Locator
+- URI : Uniform Resourse Indicator
+## RESTful API / REST API , API:
+- API : Application Programming Interface
+- Types of API
+# 2. Building RESTful Service with Express
 # Application Object
 ## properties:
 
@@ -88,6 +97,7 @@ app.use(express.static(path.join(__dirname, 'uploads')))
 # Request Object:
 repesents the HTTP request
 knwon as req
+-
 ## Proterties::
 - req.app
 - req.baseUrl
@@ -163,3 +173,14 @@ app.get('/', (req, res)=>{
 ```
 
 # Router Concept:
+- Using Named Function
+- Refactoring the Routes 
+- router.all()
+- router.METHOD()
+- router.param()
+- router.route()
+- router.use()
+route patterns
+# Error Handling Expressjs:
+- Error Handling for Synchronous Code:
+- Error Handling for Asynchronous Code:
