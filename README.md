@@ -155,11 +155,16 @@ knwon as req
 - chang change req and res object
 - call next middleware by next()
 - throw and catch errors
+---
+* Writing a Custom Middleware
 ## Types of Middleware:
 - Applicaiton Level Middleware
 - Router Level Middleware
 - error-handling middleware
 - built in middleware
+    * express.json()
+    * express.urlencoded()
+    * express.static()
 - third party middleware
 ```
 const middleware1 =(req, res, next)=>{

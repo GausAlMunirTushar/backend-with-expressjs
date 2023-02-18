@@ -1,28 +1,23 @@
 const express = require('express');
-const fs = require('fs')
-const port = 3000;
-const app = express();
+const databaseConfig = require('./config/database')
+const todoRoute = require('./routes/todoRoute')
 
+const PORT = 3000
+// express app initalization:
+const app = express();
 app.use(express.json());
 
-app.get('/api/students', (req, res) =>{
-    fs.readFile('./db.json', 'utf-8', (err, data) =>{
-        const students = JSON.parse(data).students
-        res.send(students)
-    })
-})
+// application routes
+app.use('/api/', todoRoute)
 
-app.post('/api/students', (req, res)=>{
-    const student = req.body;
-    fs.readFile('./db.json', 'utf-8', (err, data)=>{
-        const students = JSON.parse(data);
-        students.students.push(student);
-        fs.writeFile('./db.json', JSON.stringify(students), (err)=>{
-            res.send('Post')
-        })
-    })
-})
+// default error handler
+function errorHandler(err, req, res, next){
+    if(res.headersSent){
+        return next(err);
+    }
+    res.status(500).json({error: err});
+}
 
-app.listen(port, () =>{
-    console.log(`Server is running on port ${port}`);
+app.listen(PORT, ()=>{
+    console.log(`Sever running on http://localhost:${PORT}`)
 })
